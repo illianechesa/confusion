@@ -1,1 +1,4 @@
-# confusion
+# conFusion
+## First angular project
+
+### Author: @illianechesa
