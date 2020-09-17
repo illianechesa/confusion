@@ -19,7 +19,7 @@ export class DishdetailComponent implements OnInit {
   // tslint:disable-next-line:typedef
   ngOnInit() {
 
-    let id = this.route.snapshot.params['id'];
+    const id = this.route.snapshot.params.id;
     this.dish = this.dishservice.getDish(id);
   }
 
