@@ -9,7 +9,7 @@ import { LoginComponent } from '../login/login.component';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  constructor(private dialog: MatDialog) { }
 
   // tslint:disable-next-line:typedef
   ngOnInit() {
@@ -17,6 +17,6 @@ export class HeaderComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   openLoginForm() {
-    this.dialog.open(LoginComponent, {width: '500px', height: '450px'});
+    this.dialog.open(LoginComponent, {width: '400px', height: '450px'});
   }
 }

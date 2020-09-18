@@ -7,9 +7,18 @@ import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  user = {username: '', password: '', remember: false};
 
-  ngOnInit(): void {
+  constructor(public dialogRef: MatDialogRef<LoginComponent>) { }
+
+  // tslint:disable-next-line:typedef
+  ngOnInit() {
+  }
+
+  // tslint:disable-next-line:typedef
+  onSubmit() {
+    console.log('User: ', this.user);
+    this.dialogRef.close();
   }
 
 }
