@@ -64,10 +64,10 @@
         <mat-card-content>
             <mat-list fxFlex>
                 <mat-list-item *ngFor="let leader of leaders">
-                    <img mat-card-image style="width: 80px; height: 80px;" src={{leader.image}} alt={{leader.name}}>
+                    <img mat-card-image style="width: 80px; height: 80px;" src="{{baseURL + leader.image}}" alt={{leader.name}}>
                     <p matLine>{{leader.name}} {{leader.abbr}}</p>
                     <p matLine>{{leader.designation}}</p>
-                    <p matLine>-- {{leader.description}}</p>
+                    <p matLine>-- {{leader.description.substring(0,200)}}</p>
                 </mat-list-item>
             </mat-list>
             <div [hidden]="leaders">

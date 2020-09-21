@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { flyInOut, expand } from '../animations/app.animation';
 
 import { Feedback, ContactType } from '../shared/feedback';
-
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -99,6 +98,7 @@ export class ContactComponent implements OnInit {
   // tslint:disable-next-line:typedef
   onSubmit() {
     this.feedback = this.feedbackForm.value;
+    // submitFeedback(this.feedback);
     console.log(this.feedback);
     this.feedbackForm.reset({
       firstname: '',

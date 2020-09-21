@@ -20,6 +20,8 @@ export class HomeComponent implements OnInit {
 
   dish: Dish;
   dishErrMess: string;
+  promotionErrMess: string;
+  leaderErrMess: string;
   promotion: Promotion;
   leader: Leader;
 
@@ -29,8 +31,9 @@ export class HomeComponent implements OnInit {
   // tslint:disable-next-line:typedef
   ngOnInit() {
     this.dishService.getFeaturedDish().subscribe(dish => this.dish = dish, errmess => this.dishErrMess = (errmess as any));
-    this.promotionService.getFeaturedPromotion().subscribe(promotion => this.promotion = promotion);
-    this.leaderService.getFeaturedLeader().subscribe(leader => this.leader = leader);
+    // tslint:disable-next-line:max-line-length
+    this.promotionService.getFeaturedPromotion().subscribe(promotion => this.promotion = promotion, errmess => this.promotionErrMess = (errmess as any));
+    this.leaderService.getFeaturedLeader().subscribe(leader => this.leader = leader, errmess => this.leaderErrMess = (errmess as any));
   }
 
 }
