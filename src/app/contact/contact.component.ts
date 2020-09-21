@@ -19,7 +19,6 @@ export class ContactComponent implements OnInit {
   constructor(private fb: FormBuilder) {
     this.createForm();
   }
-
   // tslint:disable-next-line:typedef
   ngOnInit() {
   }
