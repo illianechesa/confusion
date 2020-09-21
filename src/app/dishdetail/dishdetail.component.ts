@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, Inject } from '@angular/core';
 import { Dish } from '../shared/dish';
 import { Comment } from '../shared/comment';
 import { DishService } from '../services/dish.service';
@@ -19,6 +19,8 @@ import { fromEventPattern } from 'rxjs';
 export class DishdetailComponent implements OnInit {
 
   dish: Dish;
+  dishcopy: Dish;
+  errMess: string;
   dishIds: string[];
   prev: string;
   next: string;
@@ -27,6 +29,7 @@ export class DishdetailComponent implements OnInit {
   feedbackForm: FormGroup;
   feedback: Feedback;
   contactType = ContactType;
+
 
   @ViewChild('fform') feedbackFormDirective;
 
@@ -54,7 +57,8 @@ export class DishdetailComponent implements OnInit {
   };
 
 
-  constructor(private dishservice: DishService, private route: ActivatedRoute, private location: Location, private fb: FormBuilder) {
+  constructor(private dishservice: DishService, private route: ActivatedRoute, private location: Location, private fb: FormBuilder,
+              @Inject('baseURL') private baseURL) {
     this.createForm();
    }
 
@@ -62,8 +66,11 @@ export class DishdetailComponent implements OnInit {
   ngOnInit() {
     this.dishservice.getDishIds().subscribe(dishIds => this.dishIds = dishIds);
     // tslint:disable-next-line:no-string-literal
-    this.route.params.pipe(switchMap((params: Params) => this.dishservice.getDish(params['id'])))
-    .subscribe(dish => { this.dish = dish; this.setPrevNext(dish.id); });
+    this.route.params
+    // tslint:disable-next-line:no-string-literal
+    .pipe(switchMap((params: Params) => this.dishservice.getDish(params['id'])))
+    .subscribe(dish => { this.dish = dish; this.dishcopy = dish; this.setPrevNext(dish.id); },
+      errmess => this.errMess = (errmess as any) );
   }
 
   // tslint:disable-next-line:typedef
@@ -106,6 +113,12 @@ export class DishdetailComponent implements OnInit {
       this.comment = this.feedbackForm.value;
       this.comment.date = new Date().toISOString();
       this.dish.comments.push(this.comment);
+      this.dishcopy.comments.push(this.comment);
+      this.dishservice.putDish(this.dishcopy)
+        .subscribe(dish => {
+          this.dish = dish; this.dishcopy = dish;
+        },
+        errmess => { this.dish = null; this.dishcopy = null; this.errMess = (errmess as any); });
       console.log(this.comment);
       this.feedbackForm.reset({
         author: '',
