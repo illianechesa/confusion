@@ -9,11 +9,17 @@ import { switchMap } from 'rxjs/operators';
 import { Feedback, ContactType } from '../shared/feedback';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { fromEventPattern } from 'rxjs';
+import { flyInOut, visibility, expand } from '../animations/app.animation';
 
 @Component({
   selector: 'app-dishdetail',
   templateUrl: './dishdetail.component.html',
-  styleUrls: ['./dishdetail.component.scss']
+  styleUrls: ['./dishdetail.component.scss'],
+  animations: [
+    flyInOut(),
+    visibility(),
+    expand(),
+  ]
 })
 
 export class DishdetailComponent implements OnInit {
@@ -29,6 +35,7 @@ export class DishdetailComponent implements OnInit {
   feedbackForm: FormGroup;
   feedback: Feedback;
   contactType = ContactType;
+  visibility = 'shown';
 
 
   @ViewChild('fform') feedbackFormDirective;
@@ -68,9 +75,9 @@ export class DishdetailComponent implements OnInit {
     // tslint:disable-next-line:no-string-literal
     this.route.params
     // tslint:disable-next-line:no-string-literal
-    .pipe(switchMap((params: Params) => this.dishservice.getDish(params['id'])))
-    .subscribe(dish => { this.dish = dish; this.dishcopy = dish; this.setPrevNext(dish.id); },
-      errmess => this.errMess = (errmess as any) );
+    .pipe(switchMap((params: Params) => { this.visibility = 'hidden'; return this.dishservice.getDish(+params['id']); }))
+    .subscribe(dish => { this.dish = dish; this.dishcopy = dish; this.setPrevNext(dish.id); this.visibility = 'shown'; },
+      errmess => this.errMess = (errmess as any));
   }
 
   // tslint:disable-next-line:typedef
