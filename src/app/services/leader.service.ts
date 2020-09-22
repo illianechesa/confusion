@@ -1,10 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Leader } from '../shared/leader';
-import { LEADERS } from '../shared/leaders';
-import { Observable, of } from 'rxjs';
-import { delay, map, catchError } from 'rxjs/operators';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 import { baseURL } from '../shared/baseurl';
+import { Leader } from '../shared/leader';
 import { ProcessHTTPMsgService } from './process-httpmsg.service';
 
 

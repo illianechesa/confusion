@@ -1,11 +1,10 @@
-import { Promotion } from '../shared/promotion';
-import { PROMOTIONS } from '../shared/promotions';
-import { Observable, of } from 'rxjs';
-import { delay, map, catchError } from 'rxjs/operators';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { baseURL } from '../shared/baseurl';
-import { ProcessHTTPMsgService } from './process-httpmsg.service';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
+import { baseURL } from '../shared/baseurl';
+import { Promotion } from '../shared/promotion';
+import { ProcessHTTPMsgService } from './process-httpmsg.service';
 
 @Injectable({
   providedIn: 'root'

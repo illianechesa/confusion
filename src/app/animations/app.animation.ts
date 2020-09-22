@@ -1,4 +1,4 @@
-import { trigger, state, style, animate, transition } from '@angular/animations';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 // tslint:disable-next-line:typedef
 export function visibility() {

@@ -1,15 +1,14 @@
-import { Component, OnInit, Input, ViewChild, Inject } from '@angular/core';
-import { Dish } from '../shared/dish';
-import { Comment } from '../shared/comment';
-import { DishService } from '../services/dish.service';
-import { Params, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { switchMap } from 'rxjs/operators';
-
-import { Feedback, ContactType } from '../shared/feedback';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { fromEventPattern } from 'rxjs';
-import { flyInOut, visibility, expand } from '../animations/app.animation';
+import { ActivatedRoute, Params } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
+import { expand, flyInOut, visibility } from '../animations/app.animation';
+import { DishService } from '../services/dish.service';
+import { Comment } from '../shared/comment';
+import { Dish } from '../shared/dish';
+import { ContactType, Feedback } from '../shared/feedback';
+
 
 @Component({
   selector: 'app-dishdetail',
