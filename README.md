@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.0.
 
+## Requirement for the project
+
+This project uses a local JSON Server, which is located in folder "json-server". In order to run the project correclty, you need to install previously json-server in your computer, using `npm i json-server` , and the just run the following command inside the "json-server" folder, `json-server --watch db.json --port 3000`.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
