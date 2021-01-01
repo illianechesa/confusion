@@ -1,6 +1,7 @@
 # ConFusion
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.0. 
+It was created by performing a course in Coursera.
 
 ## Requirement for the project
 
@@ -9,6 +10,10 @@ This project uses a local JSON Server, which is located in folder "json-server".
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+![Homepage](./src/assets/images/home.png)
+![Selection](./src/assets/images/menu.png)
+![Filtering](./src/assets/images/detail.png)
 
 ## Code scaffolding
 
