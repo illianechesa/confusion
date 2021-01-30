@@ -11,10 +11,6 @@ This project uses a local JSON Server, which is located in folder "json-server".
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-![Homepage](./src/assets/images/home.png)
-![Selection](./src/assets/images/menu.png)
-![Filtering](./src/assets/images/detail.png)
-
 ## Install dependencies
 
 Run `npm install` inside the project.
@@ -38,3 +34,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+![Homepage](./src/assets/images/home.png)
+![Selection](./src/assets/images/menu.png)
+![Filtering](./src/assets/images/detail.png)
